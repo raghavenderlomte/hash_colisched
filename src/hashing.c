@@ -86,10 +86,11 @@ void coli_insert(struct packet *pc,int key)
 		memset(cellar,'\0',size);
 		i++;
 	}
-	printf("jst aftr coli iunser\n");
+	/*printf("jst aftr coli iunser\n");*/
+	
 	if(!strcmp(a[key].time,buffer))
 	{
-		printf("in side if\n");
+		/*printf("in side if\n");*/
 		strcpy(a[key].time,pc->time);
 		a[key].src=pc->src;
 		a[key].dest=pc->dest;
@@ -105,7 +106,7 @@ void coli_insert(struct packet *pc,int key)
 		
 	}
 	else
-	{printf("in else\n");
+	{
 		if(a[key].ptr==NULL)
 		{
 			ret=1;
@@ -131,15 +132,15 @@ void coli_insert(struct packet *pc,int key)
 		}	
 		else
 		{
-			printf("in else\n");
+			
 			temp=a[key].ptr;
 			printf("after temp\n");
 			printf("%s\n",temp->time);
 			while(temp->time !=NULL)
 			{
-				printf("in while");
+				
 				if(temp->ptr == 0)
-				{	printf("in while if\n");
+				{	
 		       			strcpy(cellar[last].time,pc->time);
 					cellar[last].src=pc->src;
 		                        cellar[last].dest=pc->dest;
