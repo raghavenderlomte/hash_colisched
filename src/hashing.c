@@ -1,12 +1,12 @@
 #include "header.h"
-
+#define M 65535
 
 
 
 
 
 int last,size=5;
-struct colisched a[65535];
+struct colisched a[M];
 struct colisched *cellar,*temp;
 char buffer[]="\0";
 int coli_index(struct packet *pt)
