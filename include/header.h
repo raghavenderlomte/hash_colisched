@@ -17,7 +17,7 @@
 #include<netinet/tcp.h>
 #include<math.h>
 
-#endif
+
 
 
 #define MAX 65535
@@ -53,7 +53,7 @@ int gap_coli(struct packet *p,int index);
 void coli_insert(struct packet *,int); /*one of the internal function used for inserting the incoming packet into hash table.*/
 
 
-
+#endif
 
 /*struct packet *pckt;*/
 
