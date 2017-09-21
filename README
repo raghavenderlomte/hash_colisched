@@ -8,6 +8,8 @@ basically i am here using a loop_back network(127.0.0.1)
 
 to get the executables just execute the make command in the main directory
 
-there are two programs available as client_lookup and client_delete which are bascially used to check the time stamps of a particular entrt or to delete any particular entry respectively
+there are two programs available as client_lookup and client_delete which are bascially used to check the time stamps of a particular entry or to delete any particular entry respectively
+server.
+tcp_client and udp_client are the client programs used to get connected with server,where tcp_client works on tcp protocol and udp_client works on udp protocol.
 
 
