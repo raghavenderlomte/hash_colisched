@@ -1,5 +1,5 @@
 #include "header.h"
-#define M 65535
+#define M 65535   /*max size for the hash table*/
 
 
 
@@ -9,7 +9,7 @@ int last,size=5;
 struct colisched a[M];
 struct colisched *cellar,*temp;
 char buffer[]="\0";
-int coli_index(struct packet *pt)
+int coli_index(struct packet *pt)  
 {
 	int key1,key2,key;
 
@@ -134,7 +134,7 @@ void coli_insert(struct packet *pc,int key)
 		{
 			
 			temp=a[key].ptr;
-			printf("after temp\n");
+			/*printf("after temp\n"); */
 			printf("%s\n",temp->time);
 			while(temp->time !=NULL)
 			{
