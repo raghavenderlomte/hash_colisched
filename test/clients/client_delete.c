@@ -6,11 +6,11 @@
 int main(char *argv[],int argc)
 {
 struct packet *packt;
-packt=(struct packet *)malloc(sizeof(struct packet));
+packt=(struct packet *)malloc(sizeof(struct packet));  /*allocating memory for packet*/
 memset(packt,'\0',sizeof(struct packet));
 
 int clnt_fd,rtrn,addrlen,a;
-char buff[6][100],b[100];
+char b[100];
 struct sockaddr_in client_addr,address;
 clnt_fd=socket(AF_INET,SOCK_STREAM,0);
 if(clnt_fd == -1)
@@ -18,11 +18,11 @@ if(clnt_fd == -1)
 	perror("socket error\n");
 	return -1;
 }
-    	client_addr.sin_family = AF_INET;  
+    	client_addr.sin_family = AF_INET;  				
 	client_addr.sin_addr.s_addr = inet_addr(ADDRESS);  
 	client_addr.sin_port = htons(PORT); 
 	addrlen=sizeof(client_addr);
-	printf("enter the source addr\n");
+	printf("enter the source addr\n");	/*filling the data in packet */
 	scanf(" %[^\n]s",b);
 	address.sin_addr.s_addr=inet_addr(b);
 
@@ -52,13 +52,13 @@ if(clnt_fd == -1)
 	printf("%d\n",packt->src_port);
 	printf("%d\n",packt->dest_port);
 	printf("%d\n",packt->protocol);
-	rtrn=connect(clnt_fd,(struct sockaddr *)&client_addr,(socklen_t)addrlen);
+	rtrn=connect(clnt_fd,(struct sockaddr *)&client_addr,(socklen_t)addrlen); /*connecting to server*/
 	if(rtrn == -1)
 	{
 		perror("connect error\n");
 		return -1;
 	}
-	write(clnt_fd,(char *)packt,sizeof(struct packet));
+	write(clnt_fd,(char *)packt,sizeof(struct packet)); /*sending the packet to server*/
 	
 
 
