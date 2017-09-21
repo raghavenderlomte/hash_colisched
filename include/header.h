@@ -1,3 +1,6 @@
+#ifndef HASH_COLI
+#define HASH_COLI
+
 #include <stdio.h> 
 #include <string.h>   
 #include <stdlib.h> 
@@ -14,10 +17,11 @@
 #include<netinet/tcp.h>
 #include<math.h>
 
+#endif
 
 
 #define MAX 65535
-struct packet{     //different fields which are used in a single packet
+struct packet{     /*this packet contains protocol number,source port,destination port,time stamp,source address and destination address both in int and string form*/
 int protocol;
 char src_addr[50];
 char dest_addr[50];
@@ -27,27 +31,31 @@ char time[50];
 };
 
 
-void hash_lookup(void *);  //from here below three are the main three functions used for inserting,searching and deleting a number
-void hash_insert(void *);
-void hash_del(void *);
-
-
-
-int coli_index(struct packet *);      //below four functions are used to do the internal operations in the hash table
-struct colisched *update_array_size(struct colisched *);
-int gap_coli(struct packet *p,int index);
-void coli_insert(struct packet *,int);
-
-
-
-struct colisched{   //structure for hash table
+struct colisched{   /*structure for hash table*/
 char time[50];
 int src,dest,src_port,dest_port,protocol;
 struct colisched *ptr;
 };
 
 
-//struct packet *pckt;
+
+
+void hash_lookup(void *);  /*from here below three are the main three functions used for inserting,searching and deleting a number*/
+void hash_insert(void *);
+void hash_del(void *);
+
+
+
+int coli_index(struct packet *);      /*below four functions are used to do the internal operations in the hash table*/
+/*the above function returns the index value to store in the hash table for incoming packet*/
+struct colisched *update_array_size(struct colisched *);/*when ever cellar becomes full it increases the size of cellar by asking user ammount of size to increase*/
+int gap_coli(struct packet *p,int index);
+void coli_insert(struct packet *,int); /*one of the internal function used for inserting the incoming packet into hash table.*/
+
+
+
+
+/*struct packet *pckt;*/
 
 
 
